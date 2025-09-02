@@ -1,0 +1,97 @@
+{
+  "folders": [
+    // {
+    //   "name": "🏠 root",
+    //   "path": "../"
+    // },
+    {
+      "name": "🏫 read_with",
+      "path": "rfs_app_mono/apps/read_with"
+    },
+    {
+      "name": "🤖 read_ai_kr",
+      "path": "rfs_app_mono/apps/read_ai_kr"
+    },
+    {
+      "name": "📱 read_ei_kr",
+      "path": "rfs_app_mono/apps/read_ei_kr"
+    },
+    {
+      "name": "📱 rfs_app_btoc_in",
+      "path": "rfs_app_mono/apps/rfs_app_btoc_in"
+    },
+    {
+      "name": "📱 rfs_app_btoc_kr",
+      "path": "rfs_app_mono/apps/rfs_app_btoc_kr"
+    },
+    {
+      "name": "📦 core",
+      "path": "rfs_app_mono/packages/core"
+    },
+    {
+      "name": "📦 eyedid",
+      "path": "rfs_app_mono/packages/eyedid"
+    },
+    {
+      "name": "📦 shared_widget",
+      "path": "rfs_app_mono/packages/shared_widget"
+    },
+    {
+      "name": "📦 infrastructure",
+      "path": "rfs_app_mono/packages/infrastructure"
+    },
+    {
+      "name": "📦 rocat",
+      "path": "rfs_app_mono/packages/rocat"
+    },
+    {
+      "name": "📦 assets",
+      "path": "rfs_app_mono/packages/assets"
+    },
+    {
+      "name": "📦 icons",
+      "path": "rfs_app_mono/packages/icons"
+    },
+    {
+      "name": "📦 images",
+      "path": "rfs_app_mono/packages/images"
+    },
+    {
+      "name": "📦 training",
+      "path": "rfs_app_mono/packages/training"
+    }
+  ],
+  "settings": {
+    "dart.flutterSdkPath": ".fvm/flutter_sdk",
+    "dart.sdkPath": ".fvm/flutter_sdk/bin/cache/dart-sdk",
+    "search.exclude": {
+      "**/.fvm": true
+    },
+    "files.exclude": {
+      "**/.dart_tool": true,
+      "**/.fvm": true,
+      "**/.idea": true,
+      "**/.vscode": false,
+      "**/build": true,
+      "**/pubspec.lock": true
+    },
+    "[dart]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+      "editor.rulers": [80],
+      "editor.selectionHighlight": false,
+      "editor.suggest.snippetsPreventQuickSuggestions": false,
+      "editor.suggestSelection": "first",
+      "editor.tabCompletion": "onlySnippets",
+      "editor.wordBasedSuggestions": "off"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dart-code.dart-code",
+      "dart-code.flutter",
+      "github.copilot",
+      "nash.awesome-flutter-snippets"
+    ]
+  }
+}
