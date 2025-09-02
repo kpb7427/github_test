@@ -1,0 +1,95 @@
+name: rfs_app_mono
+
+packages:
+  - rfs_app_mono/apps/**
+  - rfs_app_mono/packages/**
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+    hooks:
+      post: |
+        melos run setup-pre-commit-hook
+        sh env/install_env.sh
+
+scripts:
+  generate:all:
+   run: melos exec -c 1 flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for all packages
+
+  generate:core:
+   run: melos exec -c 1 --scope="*core*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for core package
+
+  generate:infrastructure:
+   run: melos exec -c 1 --scope="*infrastructure*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for infrastructure package
+
+  generate:assets:
+   run: melos exec -c 1 --scope="*assets*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for assets package
+
+  generate:icons:
+   run: melos exec -c 1 --scope="*icons*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for icons package
+
+  generate:images:
+   run: melos exec -c 1 --scope="*images*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for images package
+
+  generate:shared_widget:
+   run: melos exec -c 1 --scope="*shared_widget*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for sharedwidget package
+
+  generate:eyedid:
+   run: melos exec -c 1 --scope="*eyedid*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for eyedid package
+
+  generate:rocat:
+   run: melos exec -c 1 --scope="*rocat*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for rocat package
+
+  generate:btocIN:
+   run: melos exec -c 1 --scope="*rfs_app_btoc_in*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for rfs_app_btoc_in package
+
+  generate:btocKR:
+   run: melos exec -c 1 --scope="*rfs_app_btoc_kr*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for rfs_app_btoc_kr package
+
+  generate:readAIKR:
+   run: melos exec -c 1 --scope="*read_ai_kr*" fvm flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for read_ai_kr package
+
+  generate:readEIKR:
+   run: melos exec -c 1 --scope="*read_ei_kr*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for read_ei_kr package
+
+  generrate:readWith:
+   run: melos exec -c 1 --scope="*read_with*" flutter pub run build_runner build --delete-conflicting-outputs
+   description: Generate code for read_with package
+
+  setup-pre-commit-hook:
+    description: "Set up git pre-commit hook if not exists"
+    run: |
+      # Define the source pre-commit file and the target path
+      SOURCE_FILE="./env/pre-commit"
+      TARGET_FILE=".git/hooks/pre-commit"
+
+      # Check if the pre-commit file exists in the target path
+      if [ ! -f "$TARGET_FILE" ]; then
+        echo "Pre-commit hook not found. Copying from $SOURCE_FILE..."
+        cp "$SOURCE_FILE" "$TARGET_FILE"
+        chmod +x "$TARGET_FILE"
+        echo "Pre-commit hook added and made executable successfully."
+      else
+        echo "Pre-commit hook already exists. Skipping setup."
+      fi 
+
+  analyze:
+    run: melos exec -- flutter analyze .
+    description: Run `flutter analyze` in all packages
+
+  test:
+    run: melos exec -- flutter test
+    description: Run `flutter test` in all packages
